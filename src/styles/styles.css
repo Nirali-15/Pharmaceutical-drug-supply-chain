@@ -1,81 +1,133 @@
-/* General Reset */
-body {
+/* Global Reset */
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: "Poppins", sans-serif;
-  box-sizing: border-box;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* Navbar Styles */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 20px;
-  background: linear-gradient(135deg, #dddfe8, #e8dfd1); /* Creamish gradient */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow effect */
-  border-bottom: 1px solid #d1c7b3;
-}
-
-.logo {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: #251e02; /* Darker text for contrast */
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-}
-
-.nav-links li {
-  display: inline;
-}
-
-.nav-links a {
-  color: #4a4a4a;
-  text-decoration: none;
-  font-size: 1.2rem;
-  font-weight: bold;
-  transition: color 0.3s; 
-}
-
-.nav-links a:hover {
-  color: #9d7a5b; /* Subtle pastel highlight */
-}
-
-/* Ensure the body and root elements take full height */
-html, body {
+body, html {
   height: 100%;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
+  font-family: "Poppins", sans-serif;
+  background-color: #f5efe7;
+  color: #213555;
+  scroll-behavior: smooth;
 }
 
-/* The container (typically the main page wrapper) should expand to fill available space */
-.container {
-  flex: 1;
+/* Root container should stretch vertically */
+#root {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-/* Footer styling */
+/* Layout container for pages */
+.container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: linear-gradient(135deg, #dddfe8, #e8dfd1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid #d1c7b3;
+  z-index: 1000;
+  padding: 10px 40px;
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  height: 40px;
+  width: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.logo-text {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #213555;
+}
+
+/* Nav Links */
+.nav-links {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+}
+
+.nav-links li {
+  display: inline-block;
+}
+
+.nav-links a {
+  color: #3e5879;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #00aaff;
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+  .navbar-container {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 20px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+    margin-top: 10px;
+  }
+
+  .nav-links a {
+    padding: 10px 0;
+    width: 100%;
+  }
+}
+
+/* Main content (under navbar) */
+.main-content {
+  flex: 1;
+  margin-top: 80px; /* Enough space for fixed navbar */
+  padding: 20px;
+}
+
+/* Footer */
 .footer {
   text-align: center;
   padding: 20px;
-  background: linear-gradient(135deg, #dddfe8, #f5efe7); /* Inverse creamish gradient */
-  color: #4a4a4a; /* Dark text for readability */
+  background: linear-gradient(135deg, #dddfe8, #f5efe7);
+  color: #4a4a4a;
   font-size: 1.1rem;
   font-weight: bold;
   box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
-  margin-top: auto; /* Push the footer to the bottom */
+  margin-top: auto;
 }
 
 .footer p {
@@ -83,13 +135,25 @@ html, body {
   font-size: 1rem;
 }
 
-/* Main Content */
-#root {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+/* Buttons - General Blue Style */
+button {
+  background-color: #3E5879;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
 }
 
-.main-content {
-  flex: 1;
+button:hover {
+  background-color: #1d3557;
+}
+
+/* Global link style */
+a {
+  text-decoration: none;
+  color: inherit;
 }

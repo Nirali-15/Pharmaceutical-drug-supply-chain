@@ -13,6 +13,7 @@ import Login from "./components/Pages/Login";
 import RoleBox from "./components/RoleBox";
 import './styles/styles.css'; 
 import AboutPage from "./components/Pages/About";
+import Demo from "./dashboard/demo";
 
 const App = () => {
   return (
@@ -29,7 +30,7 @@ const App = () => {
         <Route path="/About" element={<AboutPage />} />
         {/* <Route path="/register" element={<Register />} /> */}
         <Route path="/rolebox" element={<RoleBox />} />
-        
+        <Route path="/demo" element={<Demo/>} />
       </Routes>
       <Footer />
     </Router>

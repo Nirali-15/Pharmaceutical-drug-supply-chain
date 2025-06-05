@@ -47,151 +47,204 @@ const DistributorVerification = () => {
     setDrugVerification(true);
   };
 
+  const buttonDynamicStyle = {
+    padding: "16px 40px",
+    background: "linear-gradient(90deg, #4ea9df, #228ebe)",
+    color: "white",
+    border: "none",
+    borderRadius: "12px",
+    fontSize: "20px",
+    fontWeight: "600",
+    cursor: "pointer",
+    boxShadow: "0 8px 15px rgba(72, 113, 247, 0.3)",
+    transition: "all 0.3s ease",
+    display: "inline-block",
+  };
+
+  const containerStyle = {
+    width: "60%",
+    maxWidth: "700px",
+    margin: "50px auto",
+    padding: showDistributorForm || verified || showDrugForm ? "30px 40px" : "0",
+    backgroundColor: showDistributorForm || verified || showDrugForm ? "#fff" : "transparent",
+    boxShadow: showDistributorForm || verified || showDrugForm ? "0 10px 30px rgba(0,0,0,0.1)" : "none",
+    borderRadius: "12px",
+    fontFamily: "'Arial', sans-serif",
+    textAlign: "center",
+    transition: "all 0.3s ease-in-out",
+  };
+
+  const inputStyle = {
+    padding: "12px 15px",
+    borderRadius: "6px",
+    border: "1px solid #ccc",
+    fontSize: "16px",
+    width: "100%",
+    transition: "border-color 0.3s ease",
+  };
+
+  const formStyle = {
+    display: "flex",
+    flexDirection: "column",
+    gap: "16px",
+    marginTop: "25px",
+    backgroundColor: "#f9f9f9",
+    padding: "25px 30px",
+    borderRadius: "10px",
+    boxShadow: "0 5px 20px rgba(0,0,0,0.1)",
+  };
+
+  const verifiedBoxStyle = {
+    padding: "20px 25px",
+    backgroundColor: "#D8C4B6",
+    borderRadius: "10px",
+    fontSize: "18px",
+    fontWeight: "bold",
+    marginTop: "25px",
+    boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
+  };
+
   return (
-    <div style={{
-      width: "60%",
-      margin: "50px auto",
-      padding: "30px",
-      backgroundColor: "#ffffff",
-      boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.1)",
-      borderRadius: "12px",
-      textAlign: "center",
-      fontFamily: "'Arial', sans-serif",
-      transition: "all 0.3s ease-in-out"
-    }}>
+    <div style={containerStyle}>
       {!showDistributorForm && !verified && (
-        <button onClick={() => setShowDistributorForm(true)} style={{
-          padding: "14px 24px",
-          backgroundColor: "#3E5879",
-          color: "white",
-          border: "none",
-          borderRadius: "8px",
-          cursor: "pointer",
-          fontSize: "18px",
-          fontWeight: "bold",
-          transition: "0.3s",
-        }}>
-          Verify Distributor
-        </button>
+        <>
+          <img
+            src="/images/pharmatrust_logo.jpg"
+            alt="Distributor Logo"
+            style={{
+              width: "180px",
+              marginBottom: "20px",
+              display: "block",
+              marginLeft: "auto",
+              marginRight: "auto",
+            }}
+          />
+          <button
+            onClick={() => setShowDistributorForm(true)}
+            style={buttonDynamicStyle}
+            onMouseEnter={(e) =>
+              (e.currentTarget.style.background =
+                "linear-gradient(90deg, #228ebe, #4ea9df)")
+            }
+            onMouseLeave={(e) =>
+              (e.currentTarget.style.background =
+                "linear-gradient(90deg, #4ea9df, #228ebe)")
+            }
+          >
+            Verify Distributor
+          </button>
+        </>
       )}
 
       {showDistributorForm && (
-        <form onSubmit={handleDistributorSubmit} style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "14px",
-          padding: "25px",
-          backgroundColor: "#f9f9f9",
-          borderRadius: "10px",
-          boxShadow: "0px 5px 20px rgba(0, 0, 0, 0.1)",
-          marginTop: "20px"
-        }}>
-          <h2 style={{ color: "#213555" }}>Distributor Verification</h2>
+        <form onSubmit={handleDistributorSubmit} style={formStyle}>
+          <h2 style={{ color: "#213555", marginBottom: "15px" }}>
+            Distributor Verification
+          </h2>
           {Object.keys(distributorData).map((key) => (
-            <input key={key}
+            <input
+              key={key}
               type="text"
               name={key}
               placeholder={key.replace(/([A-Z])/g, " $1").trim()}
+              value={distributorData[key]}
               onChange={handleDistributorChange}
               required
-              style={{
-                padding: "12px",
-                borderRadius: "6px",
-                border: "1px solid #ccc",
-                fontSize: "16px",
-                width: "100%",
-                transition: "0.3s ease-in-out",
-              }}
+              style={inputStyle}
+              onFocus={(e) => (e.target.style.borderColor = "#3E5879")}
+              onBlur={(e) => (e.target.style.borderColor = "#ccc")}
             />
           ))}
-          <button type="submit" style={{
-            padding: "14px 24px",
-            backgroundColor: "#3E5879",
-            color: "white",
-            border: "none",
-            borderRadius: "8px",
-            cursor: "pointer",
-            fontSize: "18px",
-            fontWeight: "bold",
-            transition: "0.3s",
-          }}>
+          <button
+            type="submit"
+            style={{
+              ...buttonDynamicStyle,
+              width: "100%",
+              borderRadius: "8px",
+              fontSize: "18px",
+              boxShadow: "none",
+              minWidth: "unset",
+            }}
+            onMouseEnter={(e) =>
+              (e.currentTarget.style.background =
+                "linear-gradient(90deg, #228ebe, #4ea9df)")
+            }
+            onMouseLeave={(e) =>
+              (e.currentTarget.style.background =
+                "linear-gradient(90deg, #4ea9df, #228ebe)")
+            }
+          >
             Submit Distributor Data
           </button>
         </form>
       )}
 
       {verified && (
-        <div style={{
-          padding: "20px",
-          backgroundColor: "#D8C4B6",
-          borderRadius: "8px",
-          fontSize: "18px",
-          fontWeight: "bold",
-          marginTop: "20px",
-          boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
-        }}>
+        <div style={verifiedBoxStyle}>
           ✅ Distributor Verified Successfully!
           <br />
-          <button onClick={() => setShowDrugForm(true)} style={{
-            padding: "14px 24px",
-            backgroundColor: "#3E5879",
-            color: "white",
-            border: "none",
-            borderRadius: "8px",
-            cursor: "pointer",
-            fontSize: "18px",
-            fontWeight: "bold",
-            marginTop: "15px",
-            transition: "0.3s",
-          }}>
-            Drug Verification
+          <button
+            onClick={() => setShowDrugForm(true)}
+            style={buttonDynamicStyle}
+            onMouseEnter={(e) =>
+              (e.currentTarget.style.background =
+                "linear-gradient(90deg, #228ebe, #4ea9df)")
+            }
+            onMouseLeave={(e) =>
+              (e.currentTarget.style.background =
+                "linear-gradient(90deg, #4ea9df, #228ebe)")
+            }
+          >
+            Proceed to Drug Verification
           </button>
         </div>
       )}
 
       {showDrugForm && !drugVerification && (
-        <form onSubmit={handleDrugSubmit} style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "14px",
-          padding: "25px",
-          backgroundColor: "#f9f9f9",
-          borderRadius: "10px",
-          boxShadow: "0px 5px 20px rgba(0, 0, 0, 0.1)",
-          marginTop: "20px"
-        }}>
-          <h2 style={{ color: "#213555" }}>Drug Verification</h2>
+        <form onSubmit={handleDrugSubmit} style={formStyle}>
+          <h2 style={{ color: "#213555", marginBottom: "15px" }}>
+            Drug Verification
+          </h2>
           {Object.keys(drugData).map((key) => (
-            <input key={key}
+            <input
+              key={key}
               type="text"
               name={key}
               placeholder={key.replace(/([A-Z])/g, " $1").trim()}
+              value={drugData[key]}
               onChange={handleDrugChange}
               required
-              style={{
-                padding: "12px",
-                borderRadius: "6px",
-                border: "1px solid #ccc",
-                fontSize: "16px",
-                width: "100%",
-                transition: "0.3s ease-in-out",
-              }}
+              style={inputStyle}
+              onFocus={(e) => (e.target.style.borderColor = "#3E5879")}
+              onBlur={(e) => (e.target.style.borderColor = "#ccc")}
             />
           ))}
-          <button type="submit" style={{
-            padding: "14px 24px",
-            backgroundColor: "#3E5879",
-            color: "white",
-            border: "none",
-            borderRadius: "8px",
-            cursor: "pointer",
-            fontSize: "18px",
-            fontWeight: "bold",
-            transition: "0.3s",
-          }}>
+          <button
+            type="submit"
+            style={{
+              ...buttonDynamicStyle,
+              width: "100%",
+              borderRadius: "8px",
+              fontSize: "18px",
+              boxShadow: "none",
+              minWidth: "unset",
+            }}
+            onMouseEnter={(e) =>
+              (e.currentTarget.style.background =
+                "linear-gradient(90deg, #228ebe, #4ea9df)")
+            }
+            onMouseLeave={(e) =>
+              (e.currentTarget.style.background =
+                "linear-gradient(90deg, #4ea9df, #228ebe)")
+            }
+          >
             Submit Drug Data
           </button>
         </form>
+      )}
+
+      {drugVerification && (
+        <div style={verifiedBoxStyle}>✅ Drug Verified Successfully!</div>
       )}
     </div>
   );

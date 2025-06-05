@@ -55,168 +55,374 @@ const ManufacturerVerification = () => {
   };
 
   return (
-    <div style={{
-      width: "60%",
-      margin: "50px auto",
-      padding: "30px",
-      backgroundColor: "#ffffff",
-      boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.1)",
-      borderRadius: "12px",
-      textAlign: "center",
-      fontFamily: "'Arial', sans-serif",
-      transition: "all 0.3s ease-in-out"
-    }}>
-      
-      {!showManufacturerForm && !verified && (
-        <button onClick={() => setShowManufacturerForm(true)} style={{
-          padding: "14px 24px",
-          backgroundColor: "#3E5879",
-          color: "white",
-          border: "none",
-          borderRadius: "8px",
-          cursor: "pointer",
-          fontSize: "18px",
-          fontWeight: "bold",
-          transition: "0.3s",
-        }}>
-          Verify Manufacturer
-        </button>
-      )}
+    <div
+      style={{
+        minHeight: "100vh",
+        paddingTop: "80px",
+        paddingBottom: "40px",
+        backgroundColor: "#f3f1eb",
+        fontFamily: "'Arial', sans-serif",
+        boxSizing: "border-box",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "flex-start",
+        paddingLeft: "20px",
+        paddingRight: "20px",
+      }}
+    >
+      <div style={{ width: "60%", textAlign: "center" }}>
+        {/* Logo + Verify button only if NOT showing form or verified */}
+        {!showManufacturerForm && !verified && (
+          <>
+            <img
+              src="/images/pharmatrust_logo.jpg"
+              alt="PharmaTrust Logo"
+              style={{ width: "180px", marginBottom: "20px", display: "block", marginLeft: "auto", marginRight: "auto" }}
+            />
+            <button
+              onClick={() => setShowManufacturerForm(true)}
+              style={{
+                padding: "16px 40px",
+                background: "linear-gradient(90deg, #4e73df, #224abe)",
+                color: "white",
+                border: "none",
+                borderRadius: "12px",
+                fontSize: "20px",
+                fontWeight: "600",
+                cursor: "pointer",
+                boxShadow: "0 8px 15px rgba(72, 113, 247, 0.3)",
+                transition: "all 0.3s ease",
+                display: "inline-block"
+              }}
+              onMouseEnter={(e) =>
+                (e.currentTarget.style.background =
+                  "linear-gradient(90deg, #224abe, #4e73df)")
+              }
+              onMouseLeave={(e) =>
+                (e.currentTarget.style.background =
+                  "linear-gradient(90deg, #4e73df, #224abe)")
+              }
+            >
+              Verify Manufacturer
+            </button>
+          </>
+        )}
 
-      {showManufacturerForm && (
-        <form onSubmit={handleManufacturerSubmit} style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "14px",
-          padding: "25px",
-          backgroundColor: "#f9f9f9",
-          borderRadius: "10px",
-          boxShadow: "0px 5px 20px rgba(0, 0, 0, 0.1)",
-          marginTop: "20px"
-        }}>
-          <h2 style={{ color: "#213555" }}>Manufacturer Verification</h2>
-          {Object.keys(manufacturerData).map((key) => (
-            <input key={key}
-              type={key.includes("Upload") ? "file" : "text"}
-              name={key}
-              placeholder={key.replace(/([A-Z])/g, " $1").trim()}
+        {/* Simple Manufacturer Form */}
+        {showManufacturerForm && (
+          <form onSubmit={handleManufacturerSubmit} style={{ marginTop: "30px", textAlign: "left" }}>
+            <input
+              type="text"
+              name="manufacturerName"
+              placeholder="Manufacturer Name"
+              value={manufacturerData.manufacturerName}
               onChange={handleManufacturerChange}
               required
-              style={{
-                padding: "12px",
-                borderRadius: "6px",
-                border: "1px solid #ccc",
-                fontSize: "16px",
-                width: "100%",
-                transition: "0.3s ease-in-out",
-              }}
+              style={inputStyle}
             />
-          ))}
-          <button type="submit" style={{
-            padding: "14px 24px",
-            backgroundColor: "#3E5879",
-            color: "white",
-            border: "none",
-            borderRadius: "8px",
-            cursor: "pointer",
-            fontSize: "18px",
-            fontWeight: "bold",
-            transition: "0.3s",
-          }}>
-            Submit Manufacturer Data
-          </button>
-        </form>
-      )}
+            <input
+              type="text"
+              name="companyRegistrationNumber"
+              placeholder="Company Registration Number"
+              value={manufacturerData.companyRegistrationNumber}
+              onChange={handleManufacturerChange}
+              required
+              style={inputStyle}
+            />
+            <input
+              type="text"
+              name="manufacturingLicenseNumber"
+              placeholder="Manufacturing License Number"
+              value={manufacturerData.manufacturingLicenseNumber}
+              onChange={handleManufacturerChange}
+              required
+              style={inputStyle}
+            />
+            <input
+              type="text"
+              name="gmpCertificationNumber"
+              placeholder="GMP Certification Number"
+              value={manufacturerData.gmpCertificationNumber}
+              onChange={handleManufacturerChange}
+              required
+              style={inputStyle}
+            />
+            <input
+              type="text"
+              name="drugRegulatoryApprovalNumber"
+              placeholder="Drug Regulatory Approval Number"
+              value={manufacturerData.drugRegulatoryApprovalNumber}
+              onChange={handleManufacturerChange}
+              required
+              style={inputStyle}
+            />
+            <input
+              type="text"
+              name="taxIdentificationNumber"
+              placeholder="Tax Identification Number"
+              value={manufacturerData.taxIdentificationNumber}
+              onChange={handleManufacturerChange}
+              required
+              style={inputStyle}
+            />
+            <input
+              type="text"
+              name="importExportCode"
+              placeholder="Import Export Code"
+              value={manufacturerData.importExportCode}
+              onChange={handleManufacturerChange}
+              required
+              style={inputStyle}
+            />
+            <input
+              type="text"
+              name="registeredCorporateAddress"
+              placeholder="Registered Corporate Address"
+              value={manufacturerData.registeredCorporateAddress}
+              onChange={handleManufacturerChange}
+              required
+              style={inputStyle}
+            />
+            <input
+              type="email"
+              name="officialEmailAddress"
+              placeholder="Official Email Address"
+              value={manufacturerData.officialEmailAddress}
+              onChange={handleManufacturerChange}
+              required
+              style={inputStyle}
+            />
+            <input
+              type="text"
+              name="officialContactNumber"
+              placeholder="Official Contact Number"
+              value={manufacturerData.officialContactNumber}
+              onChange={handleManufacturerChange}
+              required
+              style={inputStyle}
+            />
+            <input
+              type="file"
+              name="gmpCertificateUpload"
+              onChange={handleManufacturerChange}
+              required
+              style={{ marginTop: "12px", marginBottom: "20px" }}
+            />
 
-      {verified && (
-        <div style={{
-          padding: "20px",
-          backgroundColor: "#D8C4B6",
-          borderRadius: "8px",
-          fontSize: "18px",
-          fontWeight: "bold",
-          marginTop: "20px",
-          boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
-        }}>
-          ✅ Manufacturer Verified Successfully!
-          <br />
-          <button onClick={() => setShowDrugForm(true)} style={{
-            padding: "14px 24px",
-            backgroundColor: "#3E5879",
-            color: "white",
-            border: "none",
-            borderRadius: "8px",
-            cursor: "pointer",
-            fontSize: "18px",
-            fontWeight: "bold",
-            marginTop: "15px",
-            transition: "0.3s",
-          }}>
-            Drug Verification
-          </button>
-        </div>
-      )}
+            <button
+              type="submit"
+              style={{
+                padding: "14px 40px",
+                backgroundColor: "#3E5879",
+                color: "white",
+                border: "none",
+                borderRadius: "12px",
+                cursor: "pointer",
+                fontSize: "18px",
+                fontWeight: "bold",
+                marginTop: "10px",
+              }}
+            >
+              Submit Manufacturer Data
+            </button>
+          </form>
+        )}
 
-      {showDrugForm && !drugVerification && (
-        <form onSubmit={handleDrugSubmit} style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "14px",
-          padding: "25px",
-          backgroundColor: "#f9f9f9",
-          borderRadius: "10px",
-          boxShadow: "0px 5px 20px rgba(0, 0, 0, 0.1)",
-          marginTop: "20px"
-        }}>
-          <h2 style={{ color: "#213555" }}>Drug Verification</h2>
-          {Object.keys(drugData).map((key) => (
-            <input key={key}
-              type={key.includes("Upload") ? "file" : key.includes("Date") ? "date" : "text"}
-              name={key}
-              placeholder={key.replace(/([A-Z])/g, " $1").trim()}
+        {/* Verified message + Drug Verification button */}
+        {verified && (
+          <div style={{ marginTop: "30px", textAlign: "center" }}>
+            <div
+              style={{
+                backgroundColor: "#D8C4B6",
+                borderRadius: "12px",
+                padding: "20px",
+                fontSize: "18px",
+                fontWeight: "bold",
+                boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
+                marginBottom: "20px",
+              }}
+            >
+              ✅ Manufacturer Verified Successfully!
+            </div>
+            <button
+              onClick={() => setShowDrugForm(true)}
+              style={{
+                padding: "16px 40px",
+                backgroundColor: "#3E5879",
+                color: "white",
+                border: "none",
+                borderRadius: "12px",
+                cursor: "pointer",
+                fontSize: "18px",
+                fontWeight: "bold",
+                transition: "0.3s",
+              }}
+            >
+              Drug Verification
+            </button>
+          </div>
+        )}
+
+        {/* Drug Verification Form */}
+        {showDrugForm && !drugVerification && (
+          <form onSubmit={handleDrugSubmit} style={{ marginTop: "30px", textAlign: "left" }}>
+            <input
+              type="text"
+              name="drugName"
+              placeholder="Drug Name"
+              value={drugData.drugName}
               onChange={handleDrugChange}
               required
-              style={{
-                padding: "12px",
-                borderRadius: "6px",
-                border: "1px solid #ccc",
-                fontSize: "16px",
-                width: "100%",
-                transition: "0.3s ease-in-out",
-              }}
+              style={inputStyle}
             />
-          ))}
-          <button type="submit" style={{
-            padding: "14px 24px",
-            backgroundColor: "#3E5879",
-            color: "white",
-            border: "none",
-            borderRadius: "8px",
-            cursor: "pointer",
-            fontSize: "18px",
-            fontWeight: "bold",
-            transition: "0.3s",
-          }}>
-            Submit Drug Data
-          </button>
-        </form>
-      )}
+            <input
+              type="text"
+              name="drugCode"
+              placeholder="Drug Code"
+              value={drugData.drugCode}
+              onChange={handleDrugChange}
+              required
+              style={inputStyle}
+            />
+            <input
+              type="text"
+              name="batchNumber"
+              placeholder="Batch Number"
+              value={drugData.batchNumber}
+              onChange={handleDrugChange}
+              required
+              style={inputStyle}
+            />
+            <input
+              type="date"
+              name="manufacturingDate"
+              placeholder="Manufacturing Date"
+              value={drugData.manufacturingDate}
+              onChange={handleDrugChange}
+              required
+              style={inputStyle}
+            />
+            <input
+              type="date"
+              name="expiryDate"
+              placeholder="Expiry Date"
+              value={drugData.expiryDate}
+              onChange={handleDrugChange}
+              required
+              style={inputStyle}
+            />
+            <input
+              type="text"
+              name="composition"
+              placeholder="Composition"
+              value={drugData.composition}
+              onChange={handleDrugChange}
+              required
+              style={inputStyle}
+            />
+            <input
+              type="text"
+              name="manufacturerName"
+              placeholder="Manufacturer Name"
+              value={drugData.manufacturerName}
+              onChange={handleDrugChange}
+              required
+              style={inputStyle}
+            />
+            <input
+              type="text"
+              name="regulatoryApprovalNumber"
+              placeholder="Regulatory Approval Number"
+              value={drugData.regulatoryApprovalNumber}
+              onChange={handleDrugChange}
+              required
+              style={inputStyle}
+            />
+            <input
+              type="text"
+              name="qrCode"
+              placeholder="QR Code"
+              value={drugData.qrCode}
+              onChange={handleDrugChange}
+              required
+              style={inputStyle}
+            />
+            <input
+              type="text"
+              name="barcode"
+              placeholder="Barcode"
+              value={drugData.barcode}
+              onChange={handleDrugChange}
+              required
+              style={inputStyle}
+            />
+            <input
+              type="text"
+              name="lastVerifiedCheckpoint"
+              placeholder="Last Verified Checkpoint"
+              value={drugData.lastVerifiedCheckpoint}
+              onChange={handleDrugChange}
+              required
+              style={inputStyle}
+            />
+            <input
+              type="file"
+              name="certificateOfAnalysis"
+              onChange={handleDrugChange}
+              required
+              style={{ marginTop: "12px", marginBottom: "20px" }}
+            />
 
-      {drugVerification && (
-        <div style={{
-          padding: "20px",
-          backgroundColor: "#D8C4B6",
-          borderRadius: "8px",
-          fontSize: "18px",
-          fontWeight: "bold",
-          marginTop: "20px",
-          boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
-        }}>
-          ✅ Drug Verified Successfully!
-        </div>
-      )}
+            <button
+              type="submit"
+              style={{
+                padding: "14px 40px",
+                backgroundColor: "#3E5879",
+                color: "white",
+                border: "none",
+                borderRadius: "12px",
+                cursor: "pointer",
+                fontSize: "18px",
+                fontWeight: "bold",
+                marginTop: "10px",
+              }}
+            >
+              Submit Drug Data
+            </button>
+          </form>
+        )}
+
+        {/* Drug Verified message */}
+        {drugVerification && (
+          <div
+            style={{
+              marginTop: "30px",
+              backgroundColor: "#D8C4B6",
+              borderRadius: "12px",
+              padding: "20px",
+              fontSize: "18px",
+              fontWeight: "bold",
+              boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
+              textAlign: "center",
+            }}
+          >
+            ✅ Drug Verified Successfully!
+          </div>
+        )}
+      </div>
     </div>
   );
+};
+
+// input styling for reuse
+const inputStyle = {
+  width: "100%",
+  padding: "14px",
+  marginBottom: "15px",
+  borderRadius: "6px",
+  border: "1px solid #ccc",
+  fontSize: "16px",
+  boxSizing: "border-box",
 };
 
 export default ManufacturerVerification;
