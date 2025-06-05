@@ -15,24 +15,24 @@ pharmacies, and users, ensuring secure and verified drug transactions. Designed 
 
 -->Output Screenshots:
 
-![Home page](Output_Screenshots/Home.png)
+![Home page](/Output_Screenshots/Home.png)
 
-![Know More page](Output_Screenshots/About.png)
+![Know More page]/(Output_Screenshots/About.png)
 
-![Role_based_Access](Output_Screenshots/Role_based_Access.png)
+![Role_based_Access](/Output_Screenshots/Role_based_Access.png)
 
-![Login page](Output_Screenshots/Login.png)       ![Register page](Output_Screenshots/Register.png)
+![Login page](/Output_Screenshots/Login.png)       ![Register page](/Output_Screenshots/Register.png)
 
-![Verify](Output_Screenshots/Verify.png)
+![Verify](/Output_Screenshots/Verify.png)
 
-![Manufacture_Verification](Output_Screenshots/Manufac_verification.png)
+![Manufacture_Verification](/Output_Screenshots/Manufac_verification.png)
 
-![Distributor Verification](Output_Screenshots/Distributor_verification.png)
+![Distributor Verification](/Output_Screenshots/Distributor_verification.png)
 
-![Pharmacy](Output_Screenshots/Pharmacy_Verification.png)
+![Pharmacy](/Output_Screenshots/Pharmacy_Verification.png)
 
-![Drug_verified](Output_Screenshots/Drug_verified.png)
+![Drug_verified](/Output_Screenshots/Drug_verified.png)
 
-![Drug_track](Output_Screenshots/Drud_Details.png)
+![Drug_track](/Output_Screenshots/Drud_Details.png)
 
-![Support](Output_Screenshots/Support.png)
+![Support](/Output_Screenshots/Support.png)
