@@ -17,7 +17,7 @@ pharmacies, and users, ensuring secure and verified drug transactions. Designed 
 
 ![Home page](/Output_Screenshots/Home.png)
 
-![Know More page]/(Output_Screenshots/About.png)
+![Know More page](/Output_Screenshots/About.png)
 
 ![Role_based_Access](/Output_Screenshots/Role_based_Access.png)
 
@@ -36,3 +36,4 @@ pharmacies, and users, ensuring secure and verified drug transactions. Designed 
 ![Drug_track](/Output_Screenshots/Drud_Details.png)
 
 ![Support](/Output_Screenshots/Support.png)
+
