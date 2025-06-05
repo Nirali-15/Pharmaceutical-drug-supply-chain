@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+-->Pharmaceutical Drug Supply chain Management System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+-->Problem Statement:
+Many fake and low-quality medicines are entering the market, which can harm people’s health. There is no proper way to check if a drug is real or fake while it moves from the manufacturer to the user.
 
-## Available Scripts
+-->Solution: 
+I created a supply chain system where each medicine is verified at every stage – by the manufacturer, distributor, pharmacy, and the user. Each role has secure access to add or check drug details, making sure only real and approved medicines reach the users. The system also allows users to verify any medicine before using it.
 
-In the project directory, you can run:
+-->Why is it needed? 
+This system helps stop fake drugs from being sold. It builds trust among all people involved – companies, sellers, and buyers – by making the medicine supply process safer, more secure, and easy to track.
 
-### `npm start`
+-->Description : 
+Developed a supply chain system to enhance drug authenticity and prevent counterfeit medicines. Implemented role-based access control for manufacturers, distributors,
+pharmacies, and users, ensuring secure and verified drug transactions. Designed a responsive system that enables secure tracking and verification of drugs from the  manufacturing stage to the end-user, ensuring only authentic drugs enter the supply chain. Built the system to make the drug supply process more reliable and trustworthy for everyone involved.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+-->Output Screenshots:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![Home page](/Output_Screenshots/Home.png)
 
-### `npm test`
+![Know More page](/Output_Screenshots/About.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Role_based_Access](/Output_Screenshots/Role_based_Access.png)
 
-### `npm run build`
+![Login page](/Output_Screenshots/Login.png)       ![Register page](/Output_Screenshots/Register.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Verify](/Output_Screenshots/Verify.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![Manufacture_Verification](/Output_Screenshots/Manufac_verification.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![Distributor Verification](/Output_Screenshots/Distributor_verification.png)
 
-### `npm run eject`
+![Pharmacy](/Output_Screenshots/Pharmacy_Verification.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![Drug_verified](/Output_Screenshots/Drug_verified.png)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![Drug_track](/Output_Screenshots/Drud_Details.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+![Support](/Output_Screenshots/Support.png)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
