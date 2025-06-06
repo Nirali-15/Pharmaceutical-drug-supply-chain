@@ -30,10 +30,10 @@ pharmacies, and users, ensuring secure and verified drug transactions. Designed 
 
 ![Distributor Verification](Output_Screenshots/Distributor_verification.png)
 
-![Pharmacy](Output_Screenshots/Pharmacy_Verification.png)
+![Pharmacy](Output_Screenshots/Pharmacy_verification.png)
 
 ![Drug_verified](Output_Screenshots/Drug_verified.png)
 
-![Drug_track](Output_Screenshots/Drud_Details.png)
+![Drug_verified](Output_Screenshots/Drud_Deatils.png)
 
 ![Support](Output_Screenshots/Support.png)
